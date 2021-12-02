@@ -170,10 +170,10 @@ footer>div:first-child{
 	flex:3; /*3:9비율 무조건 12라구 생각하면댐*/
 	margin-top:10px;
 	text-align:center;
-	color:#fff;
+	color:#f8efed;
 }
 
 footer>div:last-child{
 	flex:9;
-	color:#fff;
+	color:#f8efed;
 }
