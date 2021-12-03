@@ -31,6 +31,7 @@ autocomplete="off" required>
 <div class="caption">
 <a href="member_input.jsp">join to be a member</a>
 </div>
+</div>
 
 </body>
 </html>
