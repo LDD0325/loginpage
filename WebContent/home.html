@@ -1,13 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인페이지</title>
 </head>
-
 <body>
+
+<%
+String userID = null;
+if(session.getAttribute("userID") != null){
+	userID = (String) session.getAttribute("userID");
+}
+%>
+
 <div class="wrap">
 <div class="intro_bg">
 <div class="header">
@@ -19,14 +28,40 @@
 </form>
 </div>
 
-<ul class="nav">
-<li><a href="#">MY PAGE</a></li>
-<li><a href="#">CART</a></li>
-<li><a href="listboard.jsp">Q&A</a></li>
-<li><a href="login.jsp">LOGIN</a></li>
-</ul>
 
+<ul class="nav">
+
+<div class="dropdown">
+      <span class="dropbtn_icon"><a href="#">MY PAGE</a></span>
+      <div class="dropdown-content">
+        <a href="#">장바구니</a>
+        <a href="#">회원수정</a>
+        <a href="#">회원탈퇴</a>
+      </div>
+    </div>
+
+<li><a href="#">CART</a></li>
+<li><a href="bbs.jsp">Q&A</a></li>
+
+<%
+if(userID == null){ //로그인이되어있지않다면
+%>
+
+<li><a href="login.jsp">LOGIN</a></li>
+
+
+<%
+}else{ //그렇지않다면 (로그인이되어있다면)
+%>
+
+<li><a href="logoutAction.jsp">LOGOUT</a></li>
+
+
+<%
+}
+%>
 </div>
+</nav>
 
 <div class="intro_text">
 <h1>Su's Shopping</h1>
